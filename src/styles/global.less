@@ -1,0 +1,129 @@
+@import './vars.less';
+
+.g {
+  &-fr {
+    float: right;
+  }
+  &-flex {
+    display: flex;
+    &.column {
+      flex-direction: column;
+    }
+    &.ai-center {
+      align-items: center;
+    }
+    &.jc-center {
+      justify-content: center;
+    }
+    &.jc-between {
+      justify-content: space-between;
+    }
+    &.jc-around {
+      justify-content: space-around;
+    }
+    // &.jc-evenly {
+    //   justify-content: space-evenly;
+    // }
+  }
+  &-flex1 {
+    flex: 1;
+  }
+  &-fz10 {
+    font-size: 10px;
+  }
+  &-fz12 {
+    font-size: 12px;
+  }
+  &-fz14 {
+    font-size: 14px;
+  }
+  &-fz16 {
+    font-size: 16px;
+  }
+  &-c-666 {
+    color: #666;
+  }
+  &-c-999 {
+    color: #999;
+  }
+  &-c-green {
+    color: @color-green;
+  }
+  &-c-yellow {
+    color: @color-yellow;
+  }
+  &-c-blue {
+    color: @color-blue;
+  }
+  &-c-red {
+    color: @color-red;
+  }
+  &-c-type {
+    color: @color-vsc-null;
+  }
+  &-c-ctor {
+    color: @color-vsc-ctor;
+  }
+  &-text-center {
+    text-align: center;
+  }
+  &-text-right {
+    text-align: right;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-break-all {
+    word-break: break-all;
+  }
+  &-code {
+    padding: 10px;
+    max-height: 600px;
+    border-radius: 5px;
+    font-size: 12px;
+    overflow: auto;
+    background-color: #0000004a;
+    color: #d4d4d4;
+  }
+  &-table {
+    width: 100%;
+    border-collapse: collapse;
+    &--fixed {
+      table-layout: fixed;
+    }
+    thead th {
+      border-bottom: 1px #fff solid;
+      white-space: nowrap;
+    }
+    tbody {
+      td {
+        padding: 5px;
+      }
+      tr:not(:last-child) td {
+        border-bottom: 1px #9c9c9c3d solid;
+      }
+    }
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.json {
+  &-key {
+    color: @color-vsc-key;
+  }
+  &-number {
+    color: @color-vsc-number;
+  }
+  &-string {
+    color: @color-vsc-string;
+  }
+  &-comment {
+    color: @color-vsc-comment;
+  }
+  &-boolean,
+  &-null {
+    color: @color-vsc-null;
+  }
+}

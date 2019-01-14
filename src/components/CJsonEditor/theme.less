@@ -1,0 +1,97 @@
+/*
+	Name:       VSC
+	Author:     bowen
+*/
+@import '~@/styles/vars.less';
+
+.cm-s-vsc {
+  background: @color-vsc-background;
+  color: @color-vsc-default;
+  line-height: 1.5;
+
+  //   font-family:
+  //  'Operator Mono',
+  //  'Source Sans Pro',
+  //  Menlo,
+  //  Monaco,
+  //  Consolas,
+  //     Courier New,
+  //  monospace;
+  .CodeMirror-cursor {
+    border-color: @color-vsc-default;
+  }
+  .CodeMirror-activeline-background {
+    background: #637b9c1a;
+  }
+  .CodeMirror-selected {
+    background: #2a7ae2;
+  }
+  .cm-comment {
+    font-style: italic;
+    color: @color-vsc-comment;
+  }
+  .cm-operator {
+    color: #f3f3f3;
+  }
+  .cm-string {
+    color: @color-vsc-string;
+  }
+  .cm-string-2 {
+    color: @color-vsc-key;
+  }
+
+  .cm-tag {
+    color: #ff2c6d;
+  }
+  .cm-meta {
+    color: #b084eb;
+  }
+
+  .cm-number {
+    color: @color-vsc-number;
+  }
+  .cm-atom {
+    color: @color-vsc-null;
+  }
+  .cm-keyword {
+    color: #ff75b5;
+  }
+  .cm-variable {
+    color: #ffb86c;
+  }
+  .cm-variable-2 {
+    color: #ff9ac1;
+  }
+  .cm-variable-3,
+  .cm-type {
+    color: #ff9ac1;
+  }
+
+  .cm-def {
+    color: #e6e6e6;
+  }
+  .cm-property {
+    color: @color-vsc-key;
+  }
+  .cm-unit {
+    color: #ffb86c;
+  }
+
+  .cm-attribute {
+    color: #ffb86c;
+  }
+
+  .CodeMirror-matchingbracket {
+    border-bottom: 1px dotted #19f9d8;
+    padding-bottom: 2px;
+    color: #e6e6e6;
+  }
+  .CodeMirror-gutters {
+    background: #292a2b;
+    border-right-color: rgba(255, 255, 255, 0.1);
+  }
+  .CodeMirror-linenumber {
+    color: #e6e6e6;
+    opacity: 0.6;
+  }
+}
