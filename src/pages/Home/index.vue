@@ -173,7 +173,6 @@
     </section>
 
     <the-settings-form
-      :wrapped-component-ref="saveFormRef"
       :visible="modalVisible"
       :loading="loading"
       :initial-value="settings"
@@ -197,11 +196,11 @@ import CBackToTop from '../../components/CBackToTop';
 // default settings
 const settings = {
   jsonUrl:
-    localStorage.getItem('jsonUrl_v2')
+    localStorage.getItem('jsonUrl')
     || `${window.location.origin}/v2/swagger.json`,
-  origin: localStorage.getItem('origin_v2') || window.location.origin,
-  accessToken: localStorage.getItem('accessToken_v2') || '',
-  usingCurrent: localStorage.getItem('usingCurrent_v2') !== 'false',
+  origin: localStorage.getItem('origin') || window.location.origin,
+  accessToken: localStorage.getItem('accessToken') || '',
+  usingCurrent: localStorage.getItem('usingCurrent') !== 'false',
 };
 
 const provide = {
@@ -394,26 +393,17 @@ export default {
     handleOpenSettings() {
       this.modalVisible = true;
     },
-    handleSettingsOk() {
-      this.formRef.form.validateFields(async (err, values) => {
-        if (!err) {
-          // console.log(values);
-          Object.entries(values).forEach(([key, value]) => {
-            this.settings[key] = value;
-            localStorage.setItem(`${key}_v2`, value);
-          });
-          await this.fetchData();
-          this.modalVisible = false;
-          await this.fetchUserProfile();
-        }
+    async handleSettingsOk(values) {
+      Object.entries(values).forEach(([key, value]) => {
+        this.settings[key] = value;
+        localStorage.setItem(`${key}`, value);
       });
+      await this.fetchData();
+      this.modalVisible = false;
+      await this.fetchUserProfile();
     },
     handleSettingsCancel() {
       this.modalVisible = false;
-      this.formRef.form.setFieldsValue(this.settings);
-    },
-    saveFormRef(formRef) {
-      this.formRef = formRef;
     },
     href(path) {
       const { origin, usingCurrent } = this.settings;
