@@ -1,9 +1,15 @@
-const { resolve } = require('./utils');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const baseConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const baseConfig = require('./webpack.base.conf');
+const { resolve } = require('./utils');
+
+const {
+  PROXY = 'https://petstore.swagger.io',
+  BASE_PATH = '/v2',
+  PORT = 9001,
+} = process.env;
 
 module.exports = merge(baseConfig, {
   mode: 'development',
@@ -37,10 +43,10 @@ module.exports = merge(baseConfig, {
   },
   devtool: '#cheap-eval-source-map',
   devServer: {
-    port: 9001,
+    port: PORT,
     proxy: {
-      '/v2': {
-        target: 'https://petstore.swagger.io',
+      [BASE_PATH]: {
+        target: PROXY,
         changeOrigin: true,
       },
     },
@@ -67,7 +73,7 @@ module.exports = merge(baseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new StyleLintPlugin({
       configFile: resolve('.stylelintrc'),
-      files: '**/*.{less,vue}'
+      files: '**/*.{less,vue}',
     }),
   ],
 });
