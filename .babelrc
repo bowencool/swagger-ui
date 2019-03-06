@@ -1,24 +1,7 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions", "not ie <= 8"]
-        }
-      }
-    ]
-  ],
+  "presets": ["@babel/env"],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-vue-jsx",
-    [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
-    ],
-    ["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es" }]
+    "@babel/transform-runtime",
+    "babel-plugin-transform-vue-jsx"
   ]
 }

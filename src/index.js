@@ -9,7 +9,7 @@ import {
   Form,
   Icon,
   Input,
-  Message,
+  message,
   Modal,
   Row,
   Select,
@@ -37,7 +37,7 @@ Vue.use(Select);
 Vue.use(Spin);
 Vue.use(Switch);
 
-Vue.prototype.$message = Message;
+Vue.prototype.$message = message;
 // Vue.prototype.$notification = Notification;
 Vue.prototype.$info = Modal.info;
 Vue.prototype.$success = Modal.success;
