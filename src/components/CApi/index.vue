@@ -439,15 +439,34 @@ export default {
 
       try {
         const response = await fetch(url, requestOptions);
-        if (response.headers.get('content-type').match(/application\/json/)) {
+        const contentType = response.headers.get('content-type');
+        if (/json/.test(contentType)) {
           // jsonHighlight方法已内置escapeHTML
           const res = await response.json();
           this.res.bodyType = 'json';
           this.res.body = jsonHighlight(res);
-        } else {
+        } else if (/text|html|xml/.test(contentType)) {
           const res = await response.text();
           this.res.bodyType = 'text';
           this.res.body = res;
+        // } else if (/image/.test(contentType)) {
+        //   this.res.bodyType = 'image';
+        } else {
+          const rez = response.headers.get('content-disposition').match(/filename\*?=(utf-8'')?("?)([^"]*)\2$/);
+          const filename = decodeURIComponent(rez && rez[3]);
+          const blob = await response.blob();
+
+          const a = document.createElement('a');
+          const blobUrl = window.URL.createObjectURL(blob);
+          a.href = blobUrl;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(blobUrl);
+          a.remove();
+
+          this.res.bodyType = 'text';
+          this.res.body = 'filename';
         }
         let h = '';
         response.headers.forEach((value, key) => {
