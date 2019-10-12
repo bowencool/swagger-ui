@@ -1,5 +1,11 @@
 let count = 1;
-
+const EXAMPLES = {
+  integer: 1,
+  int: 1,
+  number: 1,
+  boolean: true,
+  object: {},
+};
 /**
  * @description 是一个可用于展示的模型
  * @returns {boolean}
@@ -14,10 +20,10 @@ export const isModel = m => 'properties' in m;
 export const getExample = (m, keys = ['example', 'default']) => {
   const k = keys.find(kk => Object.prototype.hasOwnProperty.call(m, kk));
   if (k) {
-    // if (k === 'type') {
-
-    // }
-    const eg = m[k];
+    let eg = m[k];
+    if (k === 'type') {
+      eg = EXAMPLES[m.type] || eg;
+    }
     return m.type === 'array' && !Array.isArray(eg) ? [eg] : eg;
   }
   return undefined;
