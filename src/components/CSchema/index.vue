@@ -18,23 +18,25 @@
         :style="{maxHeight}"
         value="model"
         title="模型"
-        class="g-code"
       >
-        <c-model
-          v-for="(m,name) in models"
-          :key="name"
-          :model="m"
-        ></c-model>
+        <g-code>
+          <c-model
+            v-for="(m,name) in models"
+            :key="name"
+            :model="m"
+          ></c-model>
+        </g-code>
       </c-tab-pane>
       <c-tab-pane
         value="example"
         title="示例"
       >
-        <pre
-          :style="{maxHeight}"
-          class="g-code"
-          v-html="jsonHtml"
-        ></pre>
+        <g-code>
+          <pre
+            :style="{maxHeight}"
+            v-html="jsonHtml"
+          ></pre>
+        </g-code>
       </c-tab-pane>
       <c-tab-pane
         v-if="editable"

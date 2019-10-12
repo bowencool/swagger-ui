@@ -194,18 +194,11 @@
 
         <el-collapse-transition>
           <div v-if="showResult">
-            <pre
-              v-clipboard="url"
-              v-if="url"
-              class="g-code"
-              style="cursor: pointer;"
-            >{{ url }}</pre>
+            <g-code v-if="url">{{ url }}</g-code>
 
-            <pre
+            <g-code
               v-if="res.status"
-              class="g-code"
-              style="margin-top: 10px;"
-            >status: {{ res.status }}</pre>
+            >status: {{ res.status }}</g-code>
 
             <c-tabs
               v-if="!res.err"
@@ -215,23 +208,16 @@
                 value="curl"
                 title="CURL"
               >
-                <pre
-                  v-clipboard="curl"
-                  v-if="curl"
-                  class="g-code"
-                  style="cursor: pointer;"
-                >{{ curl }}</pre>
+                <g-code v-if="curl">{{ curl }}</g-code>
               </c-tab-pane>
 
               <c-tab-pane
                 value="headers"
                 title="Headers"
               >
-                <pre
-                  v-if="res.headers"
-                  class="g-code"
-                  v-html="res.headers"
-                ></pre>
+                <g-code v-if="res.headers">
+                  <div v-html="res.headers"></div>
+                </g-code>
               </c-tab-pane>
 
               <c-tab-pane
@@ -239,26 +225,18 @@
                 title="Body"
               >
                 <template v-if="res.body">
-                  <pre
-                    v-if="res.bodyType === 'json'"
-                    ref="copyDom"
-                    class="g-code"
-                    v-html="res.body"
-                  ></pre>
-                  <pre
-                    v-if="res.bodyType === 'text'"
-                    class="g-code"
-                    v-text="res.body"
-                  ></pre>
+                  <g-code v-if="res.bodyType === 'json'">
+                    <div v-html="res.body"></div>
+                  </g-code>
+                  <g-code v-if="res.bodyType === 'text'">
+                    <div v-text="res.body"></div>
+                  </g-code>
                 </template>
               </c-tab-pane>
 
             </c-tabs>
 
-            <pre
-              v-else
-              class="g-code"
-            >{{ res.err }}</pre>
+            <g-code v-else>{{ res.err }}</g-code>
           </div>
         </el-collapse-transition>
 

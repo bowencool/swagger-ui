@@ -20,6 +20,9 @@ import Clipboard from './utils/clipboard';
 import 'ant-design-vue/dist/antd.min.css';
 import './styles/index.less';
 import App from './pages/Home';
+import GCode from './components/GCode';
+
+Vue.component(GCode.name, GCode);
 
 Vue.directive('clipboard', Clipboard);
 
