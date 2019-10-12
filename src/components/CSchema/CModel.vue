@@ -28,9 +28,9 @@ export default {
               </span>:&nbsp;
               <span domProps-innerHTML={displayName(v)}></span>;
               &nbsp;&nbsp;
-              <i class='json-comment'>
+              {v.description && <i class='json-comment'>
                 //&nbsp;{v.description}
-              </i>
+              </i>}
             </p>
           ))}
         {'}'}
