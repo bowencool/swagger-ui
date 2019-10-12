@@ -391,6 +391,11 @@ export default {
                 queries.append(param.name, param.value);
               }
               break;
+            case 'header':
+              if (param.value !== undefined) {
+                requestOptions.headers[param.name] = param.value;
+              }
+              break;
             case 'formData':
               if (param.value !== undefined) {
                 formData.append(param.name, param.value);
