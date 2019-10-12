@@ -7,7 +7,7 @@
  PROXY=https://petstore.swagger.io BASE_PATH=/v2 PORT=9001 npm run dev
 ```
 ## Todo
- - [ ] 先能用再说
+ - [x] 先能用再说
  - [ ] 配置设计
  - [ ] 重构解析器
  - [ ] 重构query定位

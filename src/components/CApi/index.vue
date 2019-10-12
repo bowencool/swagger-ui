@@ -239,7 +239,6 @@
                     v-if="res.bodyType === 'json'"
                     ref="copyDom"
                     class="g-code"
-                    @dblclick="onBodyClick"
                     v-html="res.body"
                   ></pre>
                   <pre
@@ -482,17 +481,17 @@ export default {
       this.showResult = true;
       this.loading = false;
     },
-    onBodyClick() {
-      const dom = this.$refs.copyDom;
-      const selection = window.getSelection();
-      const range = document.createRange();
-      range.selectNodeContents(dom);
-      selection.removeAllRanges();
-      selection.addRange(range);
-      document.execCommand('copy');
-      selection.removeAllRanges();
-      this.$message.success('复制成功');
-    },
+    // onBodyClick() {
+    //   const dom = this.$refs.copyDom;
+    //   const selection = window.getSelection();
+    //   const range = document.createRange();
+    //   range.selectNodeContents(dom);
+    //   selection.removeAllRanges();
+    //   selection.addRange(range);
+    //   document.execCommand('copy');
+    //   selection.removeAllRanges();
+    //   this.$message.success('复制成功');
+    // },
   },
 };
 </script>

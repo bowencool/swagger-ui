@@ -38,6 +38,7 @@
           v-else-if="param.enum"
           v-model="param.value"
           :placeholder="param.required? 'required':''"
+          allow-clear
           style="width: 100%;"
         >
           <a-select-option

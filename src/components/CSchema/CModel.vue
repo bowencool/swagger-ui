@@ -26,7 +26,7 @@ export default {
               <span class='json-key'>
                 {k}
               </span>:&nbsp;
-              <span domProps-innerHTML={displayName(v)}></span>
+              <span domProps-innerHTML={displayName(v)}></span>;
               &nbsp;&nbsp;
               <i class='json-comment'>
                 //&nbsp;{v.description}
