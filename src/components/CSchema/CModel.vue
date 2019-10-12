@@ -12,6 +12,7 @@ export default {
     },
   },
   render() {
+    console.log(this.model);
     return (
       <pre style="width: 100%;">
         <i class='json-comment'>
@@ -32,10 +33,23 @@ export default {
                 //&nbsp;{v.description}
               </i>}
             </p>
-          ))}
+          ))
+        }
         {'}'}
       </pre>
     );
   },
 };
+// {this.model.additionalProperties && <p>
+//           &nbsp;&nbsp;
+//           <span class='json-key'>
+//             additionalProperties
+//           </span>:&nbsp;
+//           <span domProps-innerHTML={displayName(this.model.additionalProperties)}></span>;
+//           &nbsp;&nbsp;
+//           {this.model.additionalProperties.description && <i class='json-comment'>
+//             //&nbsp;{this.model.additionalProperties.description}
+//           </i>}
+//         </p>
+//       }
 </script>

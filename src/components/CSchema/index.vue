@@ -144,6 +144,12 @@ export default {
         };
       }
       model.name = getName(model);
+      // console.log(model);
+      if (schema.additionalProperties) {
+        if (!model.properties) model.properties = {};
+        model.properties.additionalProperties = schema.additionalProperties;
+        // console.log(schema, model);
+      }
       // 这里的返回值一定有UI展示所需的所有properties
       return model;
     },

@@ -14,7 +14,11 @@ export const isModel = m => 'properties' in m;
 export const getExample = (m, keys = ['example', 'default']) => {
   const k = keys.find(kk => Object.prototype.hasOwnProperty.call(m, kk));
   if (k) {
-    return m.type === 'array' && !Array.isArray(m[k]) ? [m[k]] : m[k];
+    // if (k === 'type') {
+
+    // }
+    const eg = m[k];
+    return m.type === 'array' && !Array.isArray(eg) ? [eg] : eg;
   }
   return undefined;
 };
@@ -57,6 +61,6 @@ export const displayName = m => {
       : `<span class="g-c-ctor">${getName(m)}</span>`;
   }
   return m.type
-    ? `<span class="g-c-type">${m.type}</span>`
+    ? `<span class="g-c-type">${m.type}${m.format ? `($${m.format})` : ''}</span>`
     : `<span class="g-c-ctor">${getName(m)}</span>`;
 };

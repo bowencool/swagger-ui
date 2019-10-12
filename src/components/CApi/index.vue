@@ -8,6 +8,10 @@
     & + & {
       margin-top: 10px;
     }
+    &.deprecated {
+      // background-color: gray;
+      opacity: .7;
+    }
   }
   &__header {
     box-sizing: content-box;
@@ -73,7 +77,7 @@
 
 <template>
   <li
-    :class="'c-api__wrapper--' + api.method"
+    :class="['c-api__wrapper--' + api.method, { deprecated: api.deprecated }]"
     class="c-api__wrapper border-color"
   >
     <div
@@ -444,9 +448,10 @@ export default {
       try {
         const response = await fetch(url, requestOptions);
         const contentType = response.headers.get('content-type');
-        if (!contentType) {
+        const contentLength = response.headers.get('Content-Length');
+        if (contentLength === '0' || !contentType) {
           this.res.bodyType = 'text';
-          this.res.body = 'no content-type';
+          this.res.body = '(empty)';
         } else if (/json/.test(contentType)) {
           // jsonHighlight方法已内置escapeHTML
           const res = await response.json();
