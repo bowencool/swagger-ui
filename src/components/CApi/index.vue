@@ -444,7 +444,10 @@ export default {
       try {
         const response = await fetch(url, requestOptions);
         const contentType = response.headers.get('content-type');
-        if (/json/.test(contentType)) {
+        if (!contentType) {
+          this.res.bodyType = 'text';
+          this.res.body = 'no content-type';
+        } else if (/json/.test(contentType)) {
           // jsonHighlight方法已内置escapeHTML
           const res = await response.json();
           this.res.bodyType = 'json';
@@ -453,8 +456,6 @@ export default {
           const res = await response.text();
           this.res.bodyType = 'text';
           this.res.body = res;
-        // } else if (/image/.test(contentType)) {
-        //   this.res.bodyType = 'image';
         } else {
           const rez = response.headers.get('content-disposition').match(/filename\*?=(utf-8'')?("?)([^"]*)\2$/);
           const filename = decodeURIComponent(rez && rez[3]);
