@@ -11,7 +11,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
-    publicPath: '//doc.muggle-dev.com/',
+    publicPath: '/',
     filename: assetsPath('js/[name].[chunkhash].js'),
   },
   module: {
