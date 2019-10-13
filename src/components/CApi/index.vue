@@ -111,44 +111,46 @@
           <vue-markdown class="markdown">{{ api.description | fixDescription }}</vue-markdown>
         </template>
 
-        <h3>响应</h3>
-        <table class="g-table g-table--fixed">
-          <colgroup>
-            <col width="200">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>状态码</th>
-              <th>详细</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(res,code) in api.responses"
-              :key="code+'table'"
-            >
-              <td>
-                <p>{{ code }}</p><i
-                  v-if="res.schema"
-                  class="g-break-all"
-                >{{ res.description }}</i>
-              </td>
-              <td>
-                <c-schema
-                  v-if="res.schema"
-                  :schema="res.schema"
-                  max-height="400px"
-                ></c-schema>
-                <vue-markdown
-                  v-else
-                  class="markdown"
-                >{{ res.description }}</vue-markdown>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <template v-if="Object.keys(api.responses).length > 0">
+          <h3>响应</h3>
+          <table class="g-table g-table--fixed">
+            <colgroup>
+              <col width="200">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>状态码</th>
+                <th>详细</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(res,code) in api.responses"
+                :key="code+'table'"
+              >
+                <td>
+                  <p>{{ code }}</p><i
+                    v-if="res.schema"
+                    class="g-break-all"
+                  >{{ res.description }}</i>
+                </td>
+                <td>
+                  <c-schema
+                    v-if="res.schema"
+                    :schema="res.schema"
+                    max-height="400px"
+                  ></c-schema>
+                  <vue-markdown
+                    v-else
+                    class="markdown"
+                  >{{ res.description }}</vue-markdown>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </template>
 
-        <template v-if="api.parameters">
+        <template v-if="Array.isArray(api.parameters) && api.parameters.length > 0">
           <h3>请求参数</h3>
           <!-- <a-form @submit.prevent="handleSubmit"> -->
           <table class="g-table g-table--fixed">
