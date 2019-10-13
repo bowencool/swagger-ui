@@ -11,6 +11,13 @@ export default {
       required: true,
     },
   },
+  methods: {
+    isRequired(key) {
+      return Array.isArray(this.model.required)
+        ? this.model.required.includes(key)
+        : false;
+    },
+  },
   render() {
     console.log(this.model);
     return (
@@ -26,7 +33,7 @@ export default {
               &nbsp;&nbsp;
               <span class='json-key'>
                 {k}
-              </span>:&nbsp;
+              </span>{this.isRequired(k) ? null : '?' }:&nbsp;
               <span domProps-innerHTML={displayName(v)}></span>;
               &nbsp;&nbsp;
               {v.description && <i class='json-comment'>
@@ -40,16 +47,4 @@ export default {
     );
   },
 };
-// {this.model.additionalProperties && <p>
-//           &nbsp;&nbsp;
-//           <span class='json-key'>
-//             additionalProperties
-//           </span>:&nbsp;
-//           <span domProps-innerHTML={displayName(this.model.additionalProperties)}></span>;
-//           &nbsp;&nbsp;
-//           {this.model.additionalProperties.description && <i class='json-comment'>
-//             //&nbsp;{this.model.additionalProperties.description}
-//           </i>}
-//         </p>
-//       }
 </script>
