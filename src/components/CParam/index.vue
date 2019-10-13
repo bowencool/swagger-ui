@@ -65,7 +65,7 @@
       <!-- 位置 -->
       <td>{{ param.in }}</td>
       <!-- 简单类型 -->
-      <td><i class="json-key">{{ param.type }}</i></td>
+      <td><i class="json-key">{{ param.type }}{{ param.format && `($${param.format})` }}</i></td>
     </template>
   </tr>
 </template>
