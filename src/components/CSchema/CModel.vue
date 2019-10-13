@@ -19,7 +19,6 @@ export default {
     },
   },
   render() {
-    console.log(this.model);
     return (
       <pre style="width: 100%;">
         <i class='json-comment'>

@@ -13,7 +13,7 @@
 
 <template>
   <div class="c-schema">
-    <c-tabs :default-value="editable ? 'value' : 'example'">
+    <c-tabs :default-value="editable ? 'value' : 'model'">
       <c-tab-pane
         :style="{maxHeight}"
         value="model"
