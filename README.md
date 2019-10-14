@@ -15,6 +15,7 @@ npm run build
 
 ## Todo
  - [ ] 配置设计
+ - [x] 支持swagger 2.x
  - [ ] 增强顶部搜索框
  - [ ] ts重构
  <!-- - [ ] 重构query定位 -->
