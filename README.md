@@ -1,6 +1,6 @@
 # swagger-ui
 
-> [live demo](http://101.132.153.132:1001/)
+> [live demo](http://swagger-ui.bowen.cool)
 
 ## Usage
 ### production
