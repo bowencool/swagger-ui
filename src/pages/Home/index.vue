@@ -292,7 +292,7 @@ export default {
         window.scrollTo(window.scrollX, el[0].$el.offsetTop - 70);
       }
     }, 200));
-    await this.fetchUserProfile();
+    // await this.fetchUserProfile();
   },
   methods: {
     handleTabChange(tabNames) {
@@ -403,7 +403,7 @@ export default {
       });
       await this.fetchData();
       this.modalVisible = false;
-      await this.fetchUserProfile();
+      // await this.fetchUserProfile();
     },
     handleSettingsCancel() {
       this.modalVisible = false;
