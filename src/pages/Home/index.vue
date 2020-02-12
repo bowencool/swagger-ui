@@ -117,6 +117,7 @@
           style="margin: 0;"
         >{{ data.info.title }} ({{ data.info.version }})</h2>
         <a
+          v-if="data.info.contact"
           slot="extra"
           :href="'mailto:'+data.info.contact.email"
           style="line-height: 36px;"
@@ -350,13 +351,15 @@ export default {
                 ? [...gParameters, ...api.parameters]
                 : gParameters;
             }
-            api.tags.forEach(tag => {
-              if ('apis' in newTags[tag]) {
-                newTags[tag].apis.push(api);
-              } else {
-                newTags[tag].apis = [api];
-              }
-            });
+            if (Array.isArray(api.tags)) {
+              api.tags.forEach(tag => {
+                if ('apis' in newTags[tag]) {
+                  newTags[tag].apis.push(api);
+                } else {
+                  newTags[tag].apis = [api];
+                }
+              });
+            }
             delete api.tags;
           }
           /* eslint-enable no-param-reassign */
@@ -374,7 +377,7 @@ export default {
     async fetchUserProfile() {
       const {
         settings: { origin, accessToken, usingCurrent },
-        data: { basePath },
+        data: { basePath = '' },
       } = this;
 
       const { data } = await request(
