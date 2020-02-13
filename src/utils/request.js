@@ -41,7 +41,7 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
   const defaultOptions = {
-    // credentials: 'include',
+    credentials: 'include',
     // mode: 'cors',
   };
   const newOptions = { ...defaultOptions, ...options };
