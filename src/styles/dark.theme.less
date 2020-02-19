@@ -9,74 +9,16 @@ body {
 .home-page {
   background-color: #333;
   color: @font-color;
+  &__header {
+    background-color: #333 !important;
+    box-shadow: 0 2px 9px 0 #252525 !important;
+  }
   .c-api {
     &__wrapper {
       color: @font-color;
-      &--get {
-        background-color: darken(desaturate(@color-blue, 40%), 35%);
-        box-shadow: 0 0 1px 1px darken(desaturate(@color-blue, 40%), 35%);
-        h3, .color {
-          color: @color-blue;
-        }
-        &.border-color, .border-color {
-          border-color: @color-blue;
-        }
-        .bg-color {
-          background-color: @color-blue;
-        }
-      }
-      &--patch {
-        background-color: darken(@color-cyan, 25%);
-        box-shadow: 0 0 1px 1px darken(@color-cyan, 25%);
-        h3, .color {
-          color: @color-cyan;
-        }
-        &.border-color, .border-color {
-          border-color: @color-cyan;
-        }
-        .bg-color {
-          background-color: @color-cyan;
-        }
-      }
-      &--put {
-        background-color: darken(@color-yellow, 30%);
-        box-shadow: 0 0 1px 1px darken(@color-yellow, 30%);
-        h3, .color {
-          color: @color-yellow;
-        }
-        &.border-color, .border-color {
-          border-color: @color-yellow;
-        }
-        .bg-color {
-          background-color: @color-yellow;
-        }
-      }
-      &--post {
-        background-color: darken(desaturate(@color-green, 25%), 20%);
-        box-shadow: 0 0 1px 1px darken(desaturate(@color-green, 25%), 20%);
-        h3, .color {
-          color: @color-green;
-        }
-        &.border-color, .border-color {
-          border-color: @color-green;
-        }
-        .bg-color {
-          background-color: @color-green;
-        }
-      }
-      &--delete {
-        background-color: darken(desaturate(@color-red, 25%), 45%);
-        box-shadow: 0 0 1px 1px darken(desaturate(@color-red, 25%), 45%);
-        h3, .color {
-          color: @color-red;
-        }
-        &.border-color, .border-color {
-          border-color: @color-red;
-        }
-        .bg-color {
-          background-color: @color-red;
-        }
-      }
+    }
+    &__header {
+      color: #fff;
     }
   }
   .g-table {
@@ -118,6 +60,12 @@ body {
       background-color: #252526 !important;
       color: @font-color !important;
     }
+    &-input-prefix {
+      .anticon {
+        color: #fff !important;
+      }
+    }
+
     // &-modal-title,
     // &-form-item-label label,
     // &-modal-close,
@@ -136,13 +84,13 @@ body {
   }
 }
 
-.dark {
-  .ant-modal-content,
-  .ant-modal-header {
-    background-color: #252526 !important;
-    color: @font-color !important;
-    p {
-      margin: 0;
-    }
-  }
-}
+// .dark {
+//   .ant-modal-content,
+//   .ant-modal-header {
+//     background-color: #252526 !important;
+//     color: @font-color !important;
+//     p {
+//       margin: 0;
+//     }
+//   }
+// }
