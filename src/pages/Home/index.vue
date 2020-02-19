@@ -15,8 +15,8 @@
     right: 0;
     height: 60px;
     padding: 0 10px;
-    background-color: #333;
-    box-shadow: 0 2px 9px 0 #252525;
+    background-color: #fff;
+    box-shadow: 0 2px 9px 0 #cacaca;
     &__content {
       height: 100%;
       max-width: @max-width;
@@ -45,7 +45,7 @@
 </style>
 
 <template>
-  <section class="home-page theme-dark">
+  <section class="home-page">
     <header class="home-page__header">
       <div class="home-page__header__content">
         <span>
@@ -79,7 +79,6 @@
           <a-icon
             slot="prefix"
             :type="loading ? 'loading': 'search'"
-            style="color: #fff;"
           ></a-icon>
         </a-input>
         <!-- </a-spin> -->
